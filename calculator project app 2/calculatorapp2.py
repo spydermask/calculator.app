@@ -31,15 +31,14 @@ class grid(Widget):
         prev_number = prev_number[:-1]
         self.ids.cal_input.text = prev_number
         
-    def result(self):
-        prev_number = self.ids.cal_input.text
-        
-        
-        results = eval(prev_number)
-        self.ids.cal_input.text = str(results)
-        
-    
-       # self.ids.cal_input.text ="ERROR" 
+  def result(self):
+        try:
+            prev_number = self.ids.cal_input.text
+            result = eval(prev_number)
+            self.ids.cal_input.text = str(result)
+        except Exception as e:
+            print("Error:", e)
+            self.ids.cal_input.text = "Error"
 
        
         
